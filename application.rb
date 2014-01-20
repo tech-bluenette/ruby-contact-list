@@ -9,6 +9,10 @@ class Application
   def run
     show_main_menu
     input = gets.chomp
+      if input == "reprint"
+        show_main_menu
+      end
+
       if input == "quit"
           abort("Goodbye!")
       end
@@ -20,6 +24,8 @@ class Application
     puts " new      - Create a new contact"
     puts " list     - List all contacts"
     puts " show :id - Display contact details"
+    puts " reprint  - Reprints main menu"
+    puts " quit     - Quits this program"
     print "> "
   end
  
