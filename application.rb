@@ -9,6 +9,9 @@ class Application
   def run
     show_main_menu
     input = gets.chomp
+      if input == "quit"
+          abort("Goodbye!")
+      end
   end
   
   # Prints the main menu only
