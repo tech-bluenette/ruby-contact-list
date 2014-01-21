@@ -3,7 +3,7 @@ class Application
   def initialize
     # Start with an empty array of contacts.
     # TODO: Perhaps stub (seed) some contacts so we don't have to create some every time we restart the app
-    @contacts = []
+    @contacts = ["Mina Miller", "mina@gmail.com"]
   end
  
   def run
