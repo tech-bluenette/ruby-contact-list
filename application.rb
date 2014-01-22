@@ -51,9 +51,10 @@ class Application
     name = gets.chomp
     puts "What is your contact's email?"
     email = gets.chomp
-    # Instantiate new Contact object, passing it name and email to the initialize method.
+    id = @contacts.length.to_i
 
-    contact = Contact.new(name, email)
+    # Instantiate new Contact object, passing it name and email to the initialize method.
+    contact = Contact.new(name, email, id)
 
     # Call the push method on the @contacts array, giving the contact object as a parameter. This adds the contact to
     # end of the @contacts array.
@@ -71,7 +72,9 @@ class Application
     #   will be passed the current contact.
     @contacts.each do |contact|
       # call the .to_s method on contact, and then call puts with the result of the first calculation.
+      # puts @contacts[id]
       puts contact.to_s
+
     end
     run
   end
@@ -81,9 +84,9 @@ class Application
     id = gets.chomp.to_i
       if id <= @contacts.length
         # If attr_accessor :first_name was not declared in the Contact class, we wouldn't be able to use it here.
-        print @contacts[id].first_name
+        puts @contacts[id].first_name
       else
-        puts "That is not a valid id number"
+        puts "That contact is not found."
       end
     run
   end
