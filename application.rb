@@ -2,6 +2,7 @@
 class Application
  
   def run
+
     show_main_menu
     input = gets.chomp
 
@@ -50,14 +51,7 @@ class Application
   def show_id
     puts "What is your contact's id number?"
     id = gets.chomp.to_i
-
-      if id == Contact.find id
-      puts Contact[id].first_name
-      puts Contact[id].last_name
-      puts Contact[id].email
-    else
-      puts "That contact is not found."
-    end
+    puts Contact.find(id).to_s
     run
   end
 
