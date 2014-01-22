@@ -34,8 +34,10 @@ class Application
     full_name = gets.chomp.split(" ")
     puts "What is your contact's email?"
     email = gets.chomp
+    puts "Enter a number (1-5) equivalent to contact's importance (1 is most important)"
+    importance = gets.chomp.to_i
 
-    Contact.create(first_name: full_name[0], last_name: full_name[1], email: email)
+    Contact.create(first_name: full_name[0], last_name: full_name[1], email: email, importance: importance)
     run
   end
 
@@ -70,7 +72,7 @@ class Application
     end
     run
   end
-  
+
   def quit
     puts "Bye!"
     exit
