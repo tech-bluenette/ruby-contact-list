@@ -72,7 +72,6 @@ class Application
     #   will be passed the current contact.
     @contacts.each do |contact|
       # call the .to_s method on contact, and then call puts with the result of the first calculation.
-      # puts @contacts[id]
       puts contact.to_s
 
     end
@@ -85,6 +84,8 @@ class Application
       if id <= @contacts.length
         # If attr_accessor :first_name was not declared in the Contact class, we wouldn't be able to use it here.
         puts @contacts[id].first_name
+        puts @contacts[id].last_name
+        puts @contacts[id].email
       else
         puts "That contact is not found."
       end
