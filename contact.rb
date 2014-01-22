@@ -13,7 +13,7 @@ class Contact
   # The method that is run when a class is being instantiated is called a constructor. In Ruby, the constructor
   # is always named initialize. This is a constructor method.
 
-  def initialize(name, email)
+  def initialize(name, email, id)
    
    # This code is run when Contact is instantiated. 
     # Split seperates a string into an array, where each element of the array is a portion of the string that
@@ -26,6 +26,7 @@ class Contact
     # Set the instance variable (existing only within an instance of a class) email 
     # to the value of the local variable email (only within this method.)
     @email = email
+    @id = id
   end
   
   def to_s
