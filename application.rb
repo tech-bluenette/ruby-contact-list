@@ -17,6 +17,9 @@ class Application
       when "show"
         show_id
 
+      when "delete"
+        delete_id
+
       when "quit"
         quit
 
@@ -55,7 +58,19 @@ class Application
     run
   end
 
-# create a variable for contact.find.id instead of above
+  def delete_id
+    puts "What is the id number of the contact you would like to delete?"
+    id = gets.chomp.to_i
+    puts "Delete this contact forever? y/n"
+    answer = gets.chomp.downcase
+    if answer == "y"
+      contact = Contact.find_by(id: "#{id}")
+      contact.destroy
+      puts "Deleted forever and ever!"
+    end
+    run
+  end
+  
   def quit
     puts "Bye!"
     exit
@@ -66,6 +81,7 @@ class Application
     puts " new      - Create a new contact"
     puts " list     - List all contacts"
     puts " show     - Display contact details"
+    puts " delete   - Delete a contact"
     puts " quit     - Quits this program"
     print "> "
   end
