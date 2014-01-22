@@ -26,20 +26,12 @@ class Application
   end
 
   def new_contact
+    puts "What is your contact's full name?"
+    full_name = gets.chomp.split(" ")
     puts "What is your contact's email?"
     email = gets.chomp
-    found_contact = Contact.find { |contact| contact.email == email }
-    if found_contact 
-      puts "That email is already in the system and a new contact cannot be created."
-      run
-    end
-    puts "What is your contact's first name?"
-    first_name = gets.chomp
-    puts "What is your contact's last name?"
-    last_name = gets.chomp
 
-    contact = Contact.new(email, name, id)
-
+    Contact.create(first_name: full_name[0], last_name: full_name[1], email: email)
     run
   end
 
@@ -54,16 +46,18 @@ class Application
     run
   end
      
+
   def show_id
     puts "What is your contact's id number?"
     id = gets.chomp.to_i
-      if id = Contact[id]
-        puts Contact[id].first_name
-        puts Contact[id].last_name
-        puts Contact[id].email
-      else
-        puts "That contact is not found."
-      end
+
+      if id == Contact.find id
+      puts Contact[id].first_name
+      puts Contact[id].last_name
+      puts Contact[id].email
+    else
+      puts "That contact is not found."
+    end
     run
   end
 
