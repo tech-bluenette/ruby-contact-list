@@ -46,15 +46,22 @@ class Application
   end
 
   def new_contact
-    puts "What is your contact's full name?"
-    # inputted info is put into the name variable, minus the newline.
-    name = gets.chomp
     puts "What is your contact's email?"
+    # inputted info is put into the name variable, minus the newline.
     email = gets.chomp
+    found_contact = @contacts.find { |contact| contact.email == email }
+    if found_contact 
+      puts "That email is already in the system."
+    end
+    puts "What is your contact's full name?"
+    name = gets.chomp
     id = @contacts.length.to_i
 
+    # Blocks can be written with curly braces on one line, like below, or on multiple lines using do and
+    # end like in this file on line 80.
+
     # Instantiate new Contact object, passing it name and email to the initialize method.
-    contact = Contact.new(name, email, id)
+    contact = Contact.new(email, name, id)
 
     # Call the push method on the @contacts array, giving the contact object as a parameter. This adds the contact to
     # end of the @contacts array.

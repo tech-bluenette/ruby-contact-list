@@ -1,3 +1,5 @@
+# array.find, pass it a block to check if the email in array is equal to inputted email
+
 
 # Defining/declaring a new class called Contact.
 class Contact
@@ -13,7 +15,7 @@ class Contact
   # The method that is run when a class is being instantiated is called a constructor. In Ruby, the constructor
   # is always named initialize. This is a constructor method.
 
-  def initialize(name, email, id)
+  def initialize(email, name, id)
    
    # This code is run when Contact is instantiated. 
     # Split seperates a string into an array, where each element of the array is a portion of the string that
@@ -21,11 +23,13 @@ class Contact
     # # `"bork pants monkey".split(" ") => ['bork', 'pants', 'monkey']
     # The below gives guidelines on how the new contact is built, using the info inputted from the user
     # (in this name and email)
-    @first_name = name.split(" ").first
-    @last_name = name.split(" ").last
     # Set the instance variable (existing only within an instance of a class) email 
     # to the value of the local variable email (only within this method.)
     @email = email
+    @first_name = name.split(" ").first
+    @last_name = name.split(" ").last
+    
+    
     @id = id
   end
   
