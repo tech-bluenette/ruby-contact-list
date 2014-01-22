@@ -49,9 +49,12 @@ class Application
     puts "What is your contact's email?"
     # inputted info is put into the name variable, minus the newline.
     email = gets.chomp
+    # setting a variable called found_contact, passes through the @contacts array and looks at each individual
+    # contact, checkin to see if the email just inputted is matching any email in the array.
     found_contact = @contacts.find { |contact| contact.email == email }
     if found_contact 
-      puts "That email is already in the system."
+      puts "That email is already in the system and a new contact cannot be created."
+      run
     end
     puts "What is your contact's full name?"
     name = gets.chomp
