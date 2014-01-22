@@ -1,7 +1,15 @@
 require_relative 'contact'
 require_relative 'application'
- 
-Application.new.run
+
+require 'rubygems'
+require 'pry'
+
+# # Instantiate a new Application object and assign it to the app variable. This will call Application's
+# initialize method.
+app = Application.new
+
+# Call the run method on the app variable.
+app.run
 
 
 
