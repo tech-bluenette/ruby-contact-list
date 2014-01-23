@@ -14,6 +14,9 @@ class Application
       when "list"
         list_contacts
 
+      when "important"
+        list_importance
+
       when "show"
         show_id
 
@@ -47,11 +50,16 @@ class Application
 
     Contact.all.each do |contact|
       puts contact.to_s
-
     end
     run
   end
-     
+
+  def list_importance
+    Contact.order("importance").each do |person|
+    puts "#{person.first_name} #{person.last_name}"
+    end
+    run
+  end
 
   def show_id
     puts "What is your contact's id number?"
@@ -82,6 +90,7 @@ class Application
     puts "Welcome to the app. What's next?"
     puts " new      - Create a new contact"
     puts " list     - List all contacts"
+    puts "important - Lists contacts by importance"
     puts " show     - Display contact details"
     puts " delete   - Delete a contact"
     puts " quit     - Quits this program"
