@@ -3,6 +3,8 @@
 <% @contacts.each do |contact| %>
   <li>
     <h2><a href="/contacts/<%= contact.id %>"><%= contact.first_name %></a>
+       <li><a href="/contacts/<%= contact.id %>/edit">Edit Contact</a></li>
+       <li><%= delete_button(contact.id) %></li>
     </h2>
   </li>
 <% end %>

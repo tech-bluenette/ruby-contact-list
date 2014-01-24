@@ -19,7 +19,7 @@ set :database, "sqlite3:///db.sqlite"
   post "/contacts/new" do
     @contact = Contact.new(params[:contact])
     if @contact.save
-      redirect "/contacts/#{@contacts.id}"
+      redirect "/contacts/#{@contact.id}"
     else
       erb :"/contacts/new"
     end
@@ -29,3 +29,30 @@ set :database, "sqlite3:///db.sqlite"
     @contact = Contact.find(params[:id])
     erb :"/contacts/show"
   end
+
+  get "/contacts/:id/edit" do
+    @contact = Contact.find(params[:id])
+    erb :"/contacts/edit"
+  end
+
+  put "/contacts/:id" do
+    @contact = Contact.find(params[:id])
+    if @contact.update_attributes(params[:contact])
+      redirect "/contacts/#{@contact.id}"
+    else
+      erb :"contacts/edit"
+    end
+  end
+
+  helpers do
+    def delete_button(id)
+      erb :_delete_button, locals: { contact_id: id}
+    end
+  end
+
+  delete "/contacts/:id" do
+    @contact = Contact.find(params[:id]).destroy
+    redirect "/"
+  end
+
+
