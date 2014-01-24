@@ -11,8 +11,21 @@ set :database, "sqlite3:///db.sqlite"
     erb :"/contacts/index"
   end
 
-  get "/new" do
-    @contacts = Contact.new
+  get "/contacts/new" do
+    @contact = Contact.new
     erb :"/contacts/new"
   end
 
+  post "/contacts/new" do
+    @contact = Contact.new(params[:contact])
+    if @contact.save
+      redirect "/contacts/#{@contacts.id}"
+    else
+      erb :"/contacts/new"
+    end
+  end
+
+  get "/contacts/:id" do
+    @contact = Contact.find(params[:id])
+    erb :"/contacts/show"
+  end
