@@ -55,4 +55,10 @@ set :database, "sqlite3:///db.sqlite"
     redirect "/"
   end
 
+  get "/auth" do
+    erb :"/auth"
+  end
 
+ post '/auth' do  
+  "Email inputted!"  
+end  
