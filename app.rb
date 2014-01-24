@@ -8,5 +8,11 @@ set :database, "sqlite3:///db.sqlite"
 
   get "/" do
     @contacts = Contact.order("id ASC")
-    erb :"contacts/index"
+    erb :"/contacts/index"
   end
+
+  get "/new" do
+    @contacts = Contact.new
+    erb :"/contacts/new"
+  end
+

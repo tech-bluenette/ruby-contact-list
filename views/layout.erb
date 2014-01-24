@@ -1,9 +1,13 @@
 <html>
 <head>
-  <title>My Contact List</title>
+  <title>My Contacts</title>
   <% puts request.inspect %>
 </head>
 <body>
+  <ul>
+    <li><a href="/">Contacts</a></li>
+    <li><a href="../new">New</a></li>
+  </ul>
   <%= yield %>
 </body>
 </html>

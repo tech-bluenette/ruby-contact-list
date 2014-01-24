@@ -1,0 +1,20 @@
+<h1>New Contact</h1>
+<form action="/contacts" method="contact">
+  <label for="first_name">First Name:</label><br />
+  <input id="first_name" name="contacts[first_name]" type="text" value="<%= @contacts.first_name %>" />
+  <br />
+
+  <label for="last_name">Last Name:</label><br />
+  <input id="last_name" name="contacts[first_name]" type="text" value="<%= @contacts.last_name %>" />
+  <br />
+
+  <label for="email">Email Address:</label><br />
+  <input id="email" name="contacts[email]" type="text" value="<%= @contacts.email %>" />
+  <br />
+
+  <label for="importance">Importance (1 is most, 5 is least):</label><br />
+  <input id="importance" name="contacts[importance]" type="text" value="<%= @contacts.importance %>" />
+  <br />
+
+  <input type="submit" value="Create Contact" />
+</form>   
