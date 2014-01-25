@@ -1,13 +1,25 @@
 require "sinatra"
 require "sinatra/activerecord"
+require "sinatra/cookies"
+
 require_relative "contact"
 require_relative "database"
 require_relative "application"
 
 set :database, "sqlite3:///db.sqlite"
 
-  get "/" do
-    @contacts = Contact.order("id ASC")
+  get '/' do
+    erb :"/auth"
+  end
+
+  post "/auth" do        
+    response.set_cookie("owner_email", :value => params[:owner_email], :path => "/")
+    redirect "/contacts/index"
+  end
+
+
+  get "/contacts/index" do
+    @contacts = Contact.where(owner_email: cookies[:owner_email]).order("id ASC")
     erb :"/contacts/index"
   end
 
@@ -55,10 +67,4 @@ set :database, "sqlite3:///db.sqlite"
     redirect "/"
   end
 
-  get "/auth" do
-    erb :"/auth"
-  end
 
- post '/auth' do  
-  "Email inputted!"  
-end  
