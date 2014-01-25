@@ -30,6 +30,7 @@ set :database, "sqlite3:///db.sqlite"
 
   post "/contacts/new" do
     @contact = Contact.new(params[:contact])
+    @contact.owner_email = cookies[:owner_email]
     if @contact.save
       redirect "/contacts/#{@contact.id}"
     else
